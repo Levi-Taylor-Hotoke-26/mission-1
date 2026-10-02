@@ -22,6 +22,7 @@ nav a {
 
 nav a:hover {
     color: #ffffff;
+    text-decoration: underline;
 }
 
 body {
@@ -192,4 +193,34 @@ h2 {
     color: #ffcb05;
     margin-top: 0;
     margin-bottom: 15px;
+}
+
+.rom-hack-card h4:hover {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.rom-hack-card a {
+    color: #ffcb05;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.rom-hack-card a:hover {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.how-to a {
+  text-decoration:none;
+  color: #ffcb05;
+}
+
+.how-to a:hover {
+  text-decoration:underline;
+  color: white;
 }
