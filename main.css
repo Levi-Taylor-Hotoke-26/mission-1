@@ -16,11 +16,11 @@ body {
   padding: 40px;
   margin: 0;
   letter-spacing: 5px;
-  cursor: url("images/cubone-cursor.png") 4 4, auto;
+  cursor: url("/images/cubone-cursor.png") 4 4, auto;
 }
 
 a, button, [role="button"] {
-  cursor: url("images/cubone-pointer.png") 4 4, pointer;
+  cursor: url("/images/cubone-pointer.png") 4 4, pointer;
 }
 
 h1 {
