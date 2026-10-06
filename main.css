@@ -145,7 +145,7 @@ nav a:hover {
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   width: 95%;
-  background: #ffffff;
+  background: #4a5568;
   color: #121212;
   border: 3px solid #3b4cca;
   border-radius: 12px;
@@ -173,14 +173,14 @@ nav a:hover {
 .pokemon-tooltip p {
   margin: 3px 0;
   font-size: 0.7rem;
-  color: #3b4cca;
+  color: #ffcb05;
   text-shadow: none;
   letter-spacing: 0.5px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pokemon-tooltip strong {
-  color: #cc0000;
+  color: #ffcb05;
 }
 
 .ghost-type, .poison-type, .dragon-type, .ground-type, 
