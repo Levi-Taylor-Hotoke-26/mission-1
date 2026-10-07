@@ -25,7 +25,7 @@ To run this demo, install Live Server in VS Code. Click Go Live in the bottom ri
 
 ## Tech Stack
 * **HTML5:** Semantic structural elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<form>`,`<head>`, `<body>`, `<div>`, `<h1>`, `<p>`, `<img>`, `<a>`, `Class` and `ID` attributes).
-* **CSS3:** Custom properties, Flexbox, CSS Grid, Media Queries, and Keyframe Animations, background and font stylisation, margins, width & height properties, animations.
+* **CSS3:** Custom properties, Flexbox, CSS Grid, Media Queries, and Keyframe Animations, background and font stylisation, margins, width & height properties, animations, Sass.
 
 ---
 
@@ -33,4 +33,6 @@ To run this demo, install Live Server in VS Code. Click Go Live in the bottom ri
 ```text
 ├── index.html       # Main HTML structure
 ├── main.css         # Complete stylesheet (fonts, grid, animations)
+├── main.css.map     # Map scss file to css file
+├── main.scss        # Complete Sass stylesheet (fonts, grid, animations)
 └── public/          # Sprites, logos, banners, and cursors#
