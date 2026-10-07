@@ -1,0 +1,408 @@
+@use "sass:list";
+
+$font-pokemon: "Pokemon", sans-serif;
+$font-regular: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+$color-pokemon-yellow: #ffcb05;
+$color-pokemon-blue: #3b4cca;
+$color-dark-bg: #121212;
+$color-card-bg-start: #2b323b;
+$color-card-bg-end: #1f242b;
+$color-border: #4a5568;
+$color-pokeball-red: #cc0000;
+$color-pokeball-white: #ffffff;
+$color-nav-background: #22252a;
+$color-card-background-hover: #333;
+$color-white: #fff;
+$color-black: #000;
+
+$shadow-box: inset 0 0 10px rgba(0, 0, 0, 0.5);
+$shadow-text: rgba(0, 0, 0, 0.8);
+
+$pokemon-types: (
+  ghost: (#705898, $color-white),
+  poison: (#A040A0, $color-white),
+  dragon: (#7038F8, $color-white),
+  ground: (#E0C068, $color-black),
+  grass:  (#78C850, $color-black),
+  dark:   (#705848, $color-white),
+  fire:   (#F08030, $color-black),
+  fight:  (#C03028, $color-white),
+  water:  (#6890F0, $color-black),
+  bug:    (#A8B820, $color-black),
+  flying: (#A890F0, $color-black)
+);
+
+@font-face {
+  font-family: 'Pokemon';
+  src: url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff') format('woff');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-pokemon;
+  background: linear-gradient(135deg, $color-dark-bg 0%, #1a2634 100%);
+  color: $color-pokemon-yellow;
+  text-align: center;
+  padding: 40px;
+  margin: 0;
+  letter-spacing: 5px;
+  cursor: url("https://levi-taylor-hotoke-26.github.io/mission-1/images/cubone-cursor.png") 4 4, auto;
+}
+
+a, button, [role="button"] {
+  cursor: url("https://levi-taylor-hotoke-26.github.io/mission-1/images/cubone-pointer.png") 4 4, pointer;
+}
+
+h1 {
+  font-size: 3rem;
+  color: $color-pokemon-yellow;
+  text-shadow: 3px 3px 0px $color-pokemon-blue;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  color: $color-pokeball-red;
+  font-weight: 600;
+}
+
+/* Pikachu Running */
+.pikachu-track {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 35px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-family: $font-pokemon;
+    font-size: 14px;
+    color: $color-pokemon-yellow;
+    margin: 0;
+    text-shadow: 1px 1px 2px $shadow-text;
+    z-index: 1;
+}
+}
+
+.pikachu-running {
+  height: 35px;
+  width: auto;
+  position: absolute;
+  left: -120px;
+  image-rendering: pixelated;
+  animation: runAcross 4s linear infinite;
+  z-index: 2;
+}
+
+@keyframes runAcross {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100vw + 150px)); }
+}
+
+#pokemon-header, 
+#rom-hacks-header, 
+#contact-header {
+  font-family: "Pokemon", sans-serif;
+  font-size: 1.8rem;
+  color: $color-pokemon-yellow;
+  text-shadow: 2px 2px 0px $color-pokemon-blue;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  text-align: center;
+  letter-spacing: 5px;
+  grid-column: 1 / -1;
+}
+
+/* Nav */
+nav {
+  p {
+    background-color: $color-nav-background;
+    border: 3px solid $color-pokemon-blue;
+    border-radius: 8px;
+    display: inline-block;
+    padding: 8px 20px;
+    box-shadow: $shadow-box;
+  }
+
+  a {
+    text-decoration: underline;
+    color: $color-pokeball-red;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: $color-pokeball-white;
+    text-decoration: none;
+  }
+}
+
+/* Pokemon Section */
+#pokemon {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pokemon-card {
+  background: linear-gradient(180deg, $color-card-bg-start 0%, $color-card-bg-end 100%);
+  border: 3px solid $color-border;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: visible;
+  box-shadow: $shadow-box;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  z-index: 1;
+
+  &:hover {
+    transform: translateY(-5px);
+    background-color: $color-card-background-hover;
+
+    
+    .pokemon-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .static { opacity: 0; }
+    .hover { opacity: 1; z-index: 3;}
+  }
+}
+
+.pokemon-tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 95%;
+  background: $color-border;
+  color: $color-dark-bg;
+  border: 3px solid $color-pokemon-blue;
+  border-radius: 12px;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: $shadow-box;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out, transform 0.25s ease-in-out;
+  z-index: 10;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: $color-pokemon-blue transparent transparent transparent;
+  }
+
+  p {
+    margin: 3px 0;
+    font-size: 0.7rem;
+    color: $color-pokemon-yellow;
+    text-shadow: none;
+    letter-spacing: 0.5px;
+    font-family: $font-regular;
+  }
+
+  
+  strong {
+    color: $color-pokemon-yellow;
+  }
+}
+
+@each $type, $colors in $pokemon-types {
+  $bg: list.nth($colors, 1);
+  $txt: list.nth($colors, 2);
+
+  .#{$type}-type {
+    padding: 0.2rem;
+    display: inline-block;
+    margin-bottom: 5px;
+    background-color: $bg;
+    color: $txt;
+  }
+}
+
+.pokemon-name {
+  color: $color-pokemon-yellow;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 2px $shadow-text;
+}
+
+.pokemon-img-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.static {
+  opacity: 1;
+  z-index: 2;
+}
+
+.hover {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ROM Hacks Section*/
+#rom-hacks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rom-hack-card {
+  background: linear-gradient(180deg, $color-card-bg-start 0%, $color-card-bg-end 100%);
+  border: 3px solid $color-border;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: $shadow-box;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    background-color: $color-card-background-hover;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    a {
+      color: $color-pokemon-yellow;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $color-pokeball-white;
+        text-decoration: underline;
+    }
+  }
+}
+
+  a {
+    color: $color-pokemon-yellow;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-pokeball-white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.how-to a {
+  text-decoration: underline;
+  color: $color-pokemon-yellow;
+  transition: color 0.2s;
+
+  &:hover {
+    text-decoration: none;
+    color: $color-pokeball-white;
+  }
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto 40px auto;
+  background: linear-gradient(180deg, $color-card-bg-start 0%, $color-card-bg-end 100%);
+  border: 3px solid $color-border;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: $shadow-box;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: $color-pokemon-yellow;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  input,
+  textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid $color-border;
+    background-color: $color-dark-bg;
+    color: $color-pokeball-white;
+    font-family: inherit;
+
+    &:focus {
+      outline: none;
+      border-color: $color-pokemon-blue;
+    }
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3143c9;
+  color: $color-pokemon-yellow;
+  border: none;
+  border-radius: 6px;
+  font-family: $font-pokemon;
+  letter-spacing: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  
+  &:hover {
+    background-color: $color-pokemon-blue;
+    color: $color-pokeball-white;
+  }
+}
+
