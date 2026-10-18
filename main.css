@@ -1,34 +1,27 @@
+@charset "UTF-8";
 @font-face {
-  font-family: 'Pokemon';
-  src: url('https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff')
-    format('woff');
+  font-family: "Pokemon";
+  src: url("https://fonts.cdnfonts.com/s/17890/Pokemon Solid.woff") format("woff");
 }
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Pokemon', sans-serif;
+  font-family: "Pokemon", sans-serif;
   background: linear-gradient(135deg, #121212 0%, #1a2634 100%);
   color: #ffcb05;
   text-align: center;
   padding: 40px;
   margin: 0;
   letter-spacing: 5px;
-  cursor:
-    url('https://levi-taylor-hotoke-26.github.io/mission-1/images/cubone-cursor.png')
-      4 4,
-    auto;
+  cursor: url("https://levi-taylor-hotoke-26.github.io/mission-1/images/cubone-cursor.png") 4 4, auto;
 }
 
-a,
-button,
+a, button,
 .pokemon-card,
-.pokemon-card:hover [role='button'] {
-  cursor:
-    url('https://levi-taylor-hotoke-26.github.io/mission-1/images/cubone-pointer.png')
-      4 4,
-    pointer;
+.pokemon-card:hover, [role=button] {
+  cursor: url("https://levi-taylor-hotoke-26.github.io/mission-1/images/cubone-pointer.png") 4 4, pointer;
 }
 
 h1 {
@@ -56,7 +49,7 @@ h2 {
   align-items: center;
 }
 .pikachu-track p {
-  font-family: 'Pokemon', sans-serif;
+  font-family: "Pokemon", sans-serif;
   font-size: 14px;
   color: #ffcb05;
   margin: 0;
@@ -85,11 +78,11 @@ h2 {
 #pokemon-header,
 #rom-hacks-header,
 #contact-header {
-  font-family: 'Pokemon', sans-serif;
+  font-family: "Pokemon", sans-serif;
   font-size: 1.8rem;
   color: #ffcb05;
   text-shadow: 2px 2px 0px #3b4cca;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 5px;
   text-align: center;
   letter-spacing: 5px;
@@ -99,7 +92,7 @@ h2 {
 /* Nav */
 nav p {
   background-color: #22252a;
-  border: 3px solid #fff;
+  border: 3px solid #ffffff;
   border-radius: 8px;
   display: inline-block;
   padding: 8px 20px;
@@ -139,9 +132,7 @@ nav a:hover {
   position: relative;
   overflow: visible;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
   z-index: 1;
 }
 .pokemon-card:hover {
@@ -169,7 +160,7 @@ nav a:hover {
   width: 95%;
   background: #4a5568;
   color: #121212;
-  border: 3px solid #fff;
+  border: 3px solid #3b4cca;
   border-radius: 12px;
   padding: 12px;
   box-sizing: border-box;
@@ -177,14 +168,11 @@ nav a:hover {
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
-  transition:
-    opacity 0.25s ease-in-out,
-    visibility 0.25s ease-in-out,
-    transform 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out, visibility 0.25s ease-in-out, transform 0.25s ease-in-out;
   z-index: 10;
 }
 .pokemon-tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -199,7 +187,7 @@ nav a:hover {
   color: #ffcb05;
   text-shadow: none;
   letter-spacing: 0.5px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .pokemon-tooltip strong {
   color: #ffcb05;
@@ -217,7 +205,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #a040a0;
+  background-color: #A040A0;
   color: #fff;
 }
 
@@ -225,7 +213,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #7038f8;
+  background-color: #7038F8;
   color: #fff;
 }
 
@@ -233,7 +221,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #e0c068;
+  background-color: #E0C068;
   color: #000;
 }
 
@@ -241,7 +229,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #78c850;
+  background-color: #78C850;
   color: #000;
 }
 
@@ -257,7 +245,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #f08030;
+  background-color: #F08030;
   color: #000;
 }
 
@@ -265,7 +253,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #c03028;
+  background-color: #C03028;
   color: #fff;
 }
 
@@ -273,7 +261,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #6890f0;
+  background-color: #6890F0;
   color: #000;
 }
 
@@ -281,7 +269,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #a8b820;
+  background-color: #A8B820;
   color: #000;
 }
 
@@ -289,7 +277,7 @@ nav a:hover {
   padding: 0.2rem;
   display: inline-block;
   margin-bottom: 5px;
-  background-color: #a890f0;
+  background-color: #A890F0;
   color: #000;
 }
 
@@ -314,7 +302,7 @@ nav a:hover {
   max-width: 100%;
   max-height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
   position: absolute;
   transition: opacity 0.2s ease-in-out;
 }
@@ -345,9 +333,7 @@ nav a:hover {
   padding: 20px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
-  transition:
-    transform 0.2s ease,
-    border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .rom-hack-card:hover {
   transform: translateY(-5px);
@@ -358,7 +344,7 @@ nav a:hover {
   height: auto;
   border-radius: 8px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   display: block;
 }
 .rom-hack-card h4 {
@@ -421,12 +407,26 @@ nav a:hover {
   padding: 10px;
   border-radius: 6px;
   border: 2px solid #4a5568;
+  background-color: #121212;
+  color: #ffffff;
   font-family: inherit;
 }
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #3b4cca;
+}
+
+/* Override google chrome autocomplete effects */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #121212 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .submit-btn {
@@ -436,7 +436,7 @@ nav a:hover {
   color: #ffcb05;
   border: none;
   border-radius: 6px;
-  font-family: 'Pokemon', sans-serif;
+  font-family: "Pokemon", sans-serif;
   letter-spacing: 5px;
   font-weight: bold;
   font-size: 1rem;
@@ -445,4 +445,83 @@ nav a:hover {
 .submit-btn:hover {
   background-color: #3b4cca;
   color: #ffffff;
-} /*# sourceMappingURL=main.css.map */
+}
+
+/* Shiny Toggle Container & Switch Styles */
+.shiny-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.toggle-label {
+  font-family: "Pokemon", sans-serif;
+  font-size: 0.8rem;
+  color: #ffcb05;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+/* Hide checkbox */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 28px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The sliding track */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2b323b;
+  border: 2px solid #4a5568;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 28px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* The sliding Pokéball */
+.pokeball-btn {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 2px;
+  background: linear-gradient(180deg, #cc0000 0%, #cc0000 45%, #121212 45%, #121212 55%, #ffffff 55%, #ffffff 100%);
+  border: 2px solid #121212;
+  border-radius: 50%;
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.pokeball-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #121212;
+  transform: translateY(-50%);
+}
+
+/* Active State */
+input:checked + .slider {
+  background-color: #3b4cca;
+  border-color: #ffcb05;
+}
+input:checked + .slider .pokeball-btn {
+  transform: translateX(28px);
+}/*# sourceMappingURL=main.css.map */
