@@ -68,7 +68,7 @@ h1 {
 }
 
 h2 {
-  color: $color-pokeball-red;
+  color: $color-pokemon-yellow;
   font-weight: 600;
 }
 
@@ -103,6 +103,7 @@ h2 {
   animation: runAcross 4s linear infinite;
   z-index: 2;
   cursor: url("images/pokeball.png") 4 4, pointer;
+  transition: opacity 0.3 ease;
 }
 
 @keyframes runAcross {
@@ -126,6 +127,7 @@ h2 {
 
 /* Nav */
 nav {
+
   p {
     background-color: $color-nav-background;
     border: 3px solid $color-pokeball-white;
@@ -133,18 +135,18 @@ nav {
     display: inline-block;
     padding: 8px 20px;
     box-shadow: $shadow-box;
-  }
 
-  a {
+    a {
     text-decoration: underline;
-    color: $color-pokeball-red;
+    color: $color-pokemon-yellow;
     font-weight: bold;
     transition: color 0.2s;
-  }
 
-  a:hover {
-    color: $color-pokeball-white;
+    &:hover {
+    color: $color-pokemon-blue;
     text-decoration: none;
+    }
+  }
   }
 }
 
@@ -324,7 +326,7 @@ nav {
       transition: color 0.2s;
 
       &:hover {
-        color: $color-pokeball-white;
+        color: $color-pokemon-blue;
         text-decoration: underline;
     }
   }
@@ -336,7 +338,7 @@ nav {
     transition: color 0.2s;
 
     &:hover {
-      color: $color-pokeball-white;
+      color: $color-pokemon-blue;
       text-decoration: underline;
     }
   }
@@ -349,7 +351,7 @@ nav {
 
   &:hover {
     text-decoration: none;
-    color: $color-pokeball-white;
+    color: $color-pokemon-blue;
   }
 }
 
@@ -406,8 +408,7 @@ nav {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.submit-btn {
-  width: 100%;
+.submit-btn, .poliwrath-code-btn {
   padding: 12px;
   background-color: #3143c9;
   color: $color-pokemon-yellow;
@@ -420,8 +421,21 @@ nav {
   transition: background-color 0.2s;
   
   &:hover {
-    background-color: $color-pokemon-blue;
-    color: $color-pokeball-white;
+    background-color: $color-pokemon-yellow;
+    color: $color-pokemon-blue;
+  }
+}
+
+.submit-btn {
+  width: 100%;
+}
+
+.poliwrath-code-btn {
+  width: auto;
+  text-decoration: none;
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 

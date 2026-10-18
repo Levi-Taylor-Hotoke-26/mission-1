@@ -32,7 +32,7 @@ h1 {
 }
 
 h2 {
-  color: #cc0000;
+  color: #ffcb05;
   font-weight: 600;
 }
 
@@ -67,6 +67,7 @@ h2 {
   animation: runAcross 4s linear infinite;
   z-index: 2;
   cursor: url("images/pokeball.png") 4 4, pointer;
+  transition: opacity 0.3 ease;
 }
 
 @keyframes runAcross {
@@ -100,14 +101,14 @@ nav p {
   padding: 8px 20px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
-nav a {
+nav p a {
   text-decoration: underline;
-  color: #cc0000;
+  color: #ffcb05;
   font-weight: bold;
   transition: color 0.2s;
 }
-nav a:hover {
-  color: #ffffff;
+nav p a:hover {
+  color: #3b4cca;
   text-decoration: none;
 }
 
@@ -359,7 +360,7 @@ nav a:hover {
   transition: color 0.2s;
 }
 .rom-hack-card h4 a:hover {
-  color: #ffffff;
+  color: #3b4cca;
   text-decoration: underline;
 }
 .rom-hack-card a {
@@ -368,7 +369,7 @@ nav a:hover {
   transition: color 0.2s;
 }
 .rom-hack-card a:hover {
-  color: #ffffff;
+  color: #3b4cca;
   text-decoration: underline;
 }
 
@@ -379,7 +380,7 @@ nav a:hover {
 }
 .how-to a:hover {
   text-decoration: none;
-  color: #ffffff;
+  color: #3b4cca;
 }
 
 /* Contact Form */
@@ -434,8 +435,7 @@ nav a:hover {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.submit-btn {
-  width: 100%;
+.submit-btn, .poliwrath-code-btn {
   padding: 12px;
   background-color: #3143c9;
   color: #ffcb05;
@@ -447,9 +447,22 @@ nav a:hover {
   font-size: 1rem;
   transition: background-color 0.2s;
 }
-.submit-btn:hover {
-  background-color: #3b4cca;
-  color: #ffffff;
+.submit-btn:hover, .poliwrath-code-btn:hover {
+  background-color: #ffcb05;
+  color: #3b4cca;
+}
+
+.submit-btn {
+  width: 100%;
+}
+
+.poliwrath-code-btn {
+  width: auto;
+  text-decoration: none;
+}
+.poliwrath-code-btn a {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Shiny Toggle Container & Switch Styles */

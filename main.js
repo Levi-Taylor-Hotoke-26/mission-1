@@ -94,12 +94,14 @@ const runningPikachu = document.querySelector('.pikachu-running');
 
 if (runningPikachu) {
   runningPikachu.addEventListener('click', (event) => {
+    // Throw confetti
     confetti({
       particleCount: 80,
       spread: 60,
       origin: { y: 0.2 }
     });
 
+    // Create "Nice Catch!" popup
     const popup = document.createElement('div');
     popup.classList.add('nice-catch-popup');
     popup.textContent = "Nice Catch!";
@@ -114,5 +116,14 @@ if (runningPikachu) {
     setTimeout(() => {
       popup.remove();
     }, 1500);
+
+    // Make Pikachu invisible
+    runningPikachu.style.opacity = '0';
+
+    // Make Pikachu reappear after 3 seconds
+    setTimeout(() => {
+      runningPikachu.style.opacity = '1';
+      runningPikachu.style.pointerEvents = 'auto';
+    }, 3000);
   });
 }
