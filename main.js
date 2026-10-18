@@ -59,7 +59,9 @@ shinyToggleInput.addEventListener('change', () => {
 
 });
 
-/*Prevent redirection when submitting contact message*/
+/* Prevent redirection when submitting contact message
+   Send alert to user based on message success
+   Clear input fields*/
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
