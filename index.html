@@ -232,7 +232,7 @@
     <!-- Contact Me -->
     <section id="contact">
       <h3 id="contact-header">Contact Me</h3>
-      <form action="https://formspree.io/f/xnpneavg" method="POST" class="contact-form">
+      <form action="https://formspree.io/f/xnpneavg" method="POST" class="contact-form" enctype="multipart/form-data">
         <div class="form-group">
           <label for="name">Name:</label>
           <input class="text-hover" type="text" id="name" name="name" autocomplete="name" placeholder="Your Name"
@@ -248,6 +248,13 @@
           <label for="message">Message:</label>
           <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
         </div>
+
+        <!-- Turns out this is only available with premium Formspree 😒-->
+        <!--<div class="form-group">
+          <label for="file">Upload a File:</label>
+          <input type="file" name="upload">
+        </div>-->
+
 
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
@@ -274,7 +281,7 @@
     </a>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js" type="module"></script>
 </body>
 
 </html>

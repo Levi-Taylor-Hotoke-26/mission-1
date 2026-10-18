@@ -524,4 +524,31 @@ input:checked + .slider {
 }
 input:checked + .slider .pokeball-btn {
   transform: translateX(28px);
+}
+
+/* Nice Catch Message */
+.nice-catch-popup {
+  position: fixed;
+  font-family: "Pokemon", sans-serif;
+  font-size: 1.5rem;
+  color: #ffcb05;
+  text-shadow: 2px 2px 0px #3b4cca, 4px 4px 0px rgba(0, 0, 0, 0.8);
+  pointer-events: none; /* Allows clicks to pass right through it */
+  animation: floatUpAndFade 1s ease-out forwards;
+  z-index: 9999;
+  letter-spacing: 2px;
+}
+
+@keyframes floatUpAndFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.8);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1);
+  }
 }/*# sourceMappingURL=main.css.map */

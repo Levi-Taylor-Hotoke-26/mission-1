@@ -1,3 +1,6 @@
+//imports
+import confetti from 'https://cdn.jsdelivr.net/npm/canvas-confetti/+esm'
+
 // Pokemon cries on click
 const pokemonCards = document.querySelectorAll('.pokemon-card');
 
@@ -81,5 +84,33 @@ if (contactForm) {
     }).catch(error => {
       alert("Sorry, there was a connection error.");
     });
+  });
+}
+
+/* catch Pikachu and throw confetti */
+const runningPikachu = document.querySelector('.pikachu-running');
+
+if (runningPikachu) {
+  runningPikachu.addEventListener('click', (event) => {
+    confetti({
+      particleCount: 80,
+      spread: 60,
+      origin: { y: 0.2 }
+    });
+
+    const popup = document.createElement('div');
+    popup.classList.add('nice-catch-popup');
+    popup.textContent = "Nice Catch!";
+
+    const rect = runningPikachu.getBoundingClientRect();
+    popup.style.left = `${rect.left + rect.width / 2}px`;
+    popup.style.top = `${rect.top}px`;
+    popup.style.transform = 'translate(-50%, -50%)';
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.remove();
+    }, 1500);
   });
 }
