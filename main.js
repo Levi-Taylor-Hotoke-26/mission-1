@@ -1,4 +1,4 @@
-// Pokemon cries
+// Pokemon cries on click
 const pokemonCards = document.querySelectorAll('.pokemon-card');
 
 pokemonCards.forEach(card => {
@@ -27,3 +27,59 @@ pokemonCards.forEach(card => {
     });
   }
 });
+
+// Shiny Button
+const shinyToggleInput = document.getElementById('shiny-toggle-input');
+
+shinyToggleInput.addEventListener('change', () => {
+  const isShiny = shinyToggleInput.checked;
+
+  document.body.classList.toggle('shiny-mode', isShiny);
+
+  for (const card of pokemonCards) {
+    const staticImg = card.querySelector('.pokemon-img.static');
+    const hoverImg = card.querySelector('.pokemon-img.hover');
+
+    if (staticImg && hoverImg) {
+      let staticSrc = staticImg.getAttribute('src');
+      let hoverSrc = hoverImg.getAttribute('src');
+
+      if (isShiny) {
+        staticImg.src = staticSrc.replace('.png', '-shiny.png');
+        hoverImg.src = hoverSrc.replace('.gif', '-shiny.gif');
+      } else {
+        staticImg.src = staticSrc.replace('-shiny.png', '.png');
+        hoverImg.src = hoverSrc.replace('-shiny.gif', '.gif');
+      }
+    }
+  };
+
+});
+
+/*Prevent redirection when submitting contact message*/
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    fetch(contactForm.action, {
+      method: contactForm.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        alert("Thanks for your message! I'll get back to you soon!");
+        contactForm.reset();
+      } else {
+        alert("Sorry, there was a problem submitting your form.");
+      }
+    }).catch(error => {
+      alert("Sorry, there was a connection error.");
+    });
+  });
+}
