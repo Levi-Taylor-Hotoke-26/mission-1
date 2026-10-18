@@ -1,7 +1,7 @@
-//imports
+// IMPORTS
 import confetti from 'https://cdn.jsdelivr.net/npm/canvas-confetti/+esm'
 
-// Pokemon cries on click
+// POKEMON CRIES
 const pokemonCards = document.querySelectorAll('.pokemon-card');
 
 pokemonCards.forEach(card => {
@@ -31,7 +31,7 @@ pokemonCards.forEach(card => {
   }
 });
 
-// Shiny Button
+// SHINY TOGGLE BTN
 const shinyToggleInput = document.getElementById('shiny-toggle-input');
 
 shinyToggleInput.addEventListener('change', () => {
@@ -89,11 +89,19 @@ if (contactForm) {
   });
 }
 
+/* CATCH PIKACHU */
+
+/* Track total catches */
+let catchCount = 0;
+
 /* catch Pikachu and throw confetti */
 const runningPikachu = document.querySelector('.pikachu-running');
 
 if (runningPikachu) {
   runningPikachu.addEventListener('click', (event) => {
+    // Arithmetic operator: increment the catch count by 1
+    catchCount += 1;
+
     // Throw confetti
     confetti({
       particleCount: 80,
@@ -101,10 +109,12 @@ if (runningPikachu) {
       origin: { y: 0.2 }
     });
 
-    // Create "Nice Catch!" popup
+    // Create "Nice Catch!" popup with updated count
     const popup = document.createElement('div');
     popup.classList.add('nice-catch-popup');
-    popup.textContent = "Nice Catch!";
+
+    // Display the message catchCount
+    popup.textContent = `Nice Catch! (x${catchCount})`;
 
     const rect = runningPikachu.getBoundingClientRect();
     popup.style.left = `${rect.left + rect.width / 2}px`;
@@ -117,8 +127,9 @@ if (runningPikachu) {
       popup.remove();
     }, 1500);
 
-    // Make Pikachu invisible
+    // Make Pikachu invisible and disable clicking during cooldown
     runningPikachu.style.opacity = '0';
+    runningPikachu.style.pointerEvents = 'none';
 
     // Make Pikachu reappear after 3 seconds
     setTimeout(() => {
