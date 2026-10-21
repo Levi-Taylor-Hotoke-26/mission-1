@@ -528,7 +528,7 @@ input:checked + .slider {
   font-size: 1.5rem;
   color: $color-pokemon-yellow;
   text-shadow: 2px 2px 0px $color-pokemon-blue, 4px 4px 0px rgba(0, 0, 0, 0.8);
-  pointer-events: none; /* Allows clicks to pass right through it */
+  pointer-events: none;
   animation: floatUpAndFade 1s ease-out forwards;
   z-index: 9999;
   letter-spacing: 2px;

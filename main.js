@@ -19,7 +19,7 @@ pokemonCards.forEach(card => {
 
         if (cryURL) {
           const cry = new Audio(cryURL);
-          cry.volume = 0.3;
+          cry.volume = 0.15;
           cry.play();
         } else {
           console.log(`No cry available for ${pokemonName}`);
