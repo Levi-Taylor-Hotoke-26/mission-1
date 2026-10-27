@@ -11,7 +11,6 @@ body {
   background: linear-gradient(135deg, #121212 0%, #1a2634 100%);
   color: #ffcb05;
   text-align: center;
-  padding: 40px;
   margin: 0;
   letter-spacing: 5px;
   cursor: url("images/cubone-cursor.png") 4 4, auto;
@@ -71,7 +70,7 @@ h2 {
   position: absolute;
   left: -120px;
   image-rendering: pixelated;
-  animation: runAcross 7s linear infinite;
+  animation: runAcross 10s linear infinite;
   z-index: 2;
   cursor: url("images/pokeball.png") 4 4, pointer;
   transition: opacity 0.3 ease;
@@ -551,8 +550,9 @@ input:checked + .slider .pokeball-btn {
   transform: translateX(28px);
 }
 
-/* Nice Catch Message */
-.nice-catch-popup {
+/* CATCH MESSAGES */
+/* catch pikachu */
+.nice-catch-popup-pikachu {
   position: fixed;
   font-family: "Pokemon", sans-serif;
   font-size: 1.5rem;
@@ -564,6 +564,20 @@ input:checked + .slider .pokeball-btn {
   letter-spacing: 2px;
 }
 
+/* catch ditto */
+.nice-catch-popup-ditto {
+  position: fixed;
+  font-family: "Pokemon", sans-serif;
+  font-size: 1.5rem;
+  color: #6B21A8;
+  text-shadow: 2px 2px 0px #A855F7, 4px 4px 0px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  animation: floatUpAndFade 1s ease-out forwards;
+  z-index: 9999;
+  letter-spacing: 2px;
+}
+
+/* catch message animation */
 @keyframes floatUpAndFade {
   0% {
     opacity: 1;

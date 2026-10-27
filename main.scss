@@ -5,6 +5,8 @@ $font-regular: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 $color-pokemon-yellow: #ffcb05;
 $color-pokemon-blue: #3b4cca;
+$color-ditto: #6B21A8;
+$color-ditto-shadow: #A855F7;
 $color-dark-bg: #121212;
 $color-card-bg-start: #2b323b;
 $color-card-bg-end: #1f242b;
@@ -47,7 +49,7 @@ body {
   background: linear-gradient(135deg, $color-dark-bg 0%, #1a2634 100%);
   color: $color-pokemon-yellow;
   text-align: center;
-  padding: 40px;
+  //padding: 40px;
   margin: 0;
   letter-spacing: 5px;
   cursor: url("images/cubone-cursor.png") 4 4, auto;
@@ -107,7 +109,7 @@ h2 {
   position: absolute;
   left: -120px;
   image-rendering: pixelated;
-  animation: runAcross 7s linear infinite;
+  animation: runAcross 10s linear infinite;
   z-index: 2;
   cursor: url("images/pokeball.png") 4 4, pointer;
   transition: opacity 0.3 ease;
@@ -528,19 +530,30 @@ input:checked + .slider {
   }
 }
 
-/* Nice Catch Message */
-.nice-catch-popup {
+/* CATCH MESSAGES */
+@mixin catch-popup($color, $shadow-color) {
   position: fixed;
   font-family: $font-pokemon;
   font-size: 1.5rem;
-  color: $color-pokemon-yellow;
-  text-shadow: 2px 2px 0px $color-pokemon-blue, 4px 4px 0px rgba(0, 0, 0, 0.8);
+  color: $color;
+  text-shadow: 2px 2px 0px $shadow-color, 4px 4px 0px rgba(0, 0, 0, 0.8);
   pointer-events: none;
   animation: floatUpAndFade 1s ease-out forwards;
   z-index: 9999;
   letter-spacing: 2px;
 }
 
+/* catch pikachu */
+.nice-catch-popup-pikachu {
+  @include catch-popup($color-pokemon-yellow, $color-pokemon-blue);
+}
+
+/* catch ditto */
+.nice-catch-popup-ditto {
+  @include catch-popup($color-ditto, $color-ditto-shadow);
+}
+
+/* catch message animation */
 @keyframes floatUpAndFade {
   0% {
     opacity: 1;

@@ -98,6 +98,9 @@ let catchCount = 0;
 const runningPikachu = document.querySelector('.pikachu-running');
 
 if (runningPikachu) {
+  const originalSrc = runningPikachu.src;
+  const dittoCatch = "images/ditto.gif";
+
   runningPikachu.addEventListener('click', (event) => {
     // Arithmetic operator: increment the catch count by 1
     catchCount += 1;
@@ -109,13 +112,10 @@ if (runningPikachu) {
       origin: { y: 0.2 }
     });
 
-    // Create "Nice Catch!" popup with updated count
+    // Create pop up message div element
     const popup = document.createElement('div');
-    popup.classList.add('nice-catch-popup');
 
-    // Display the message catchCount
-    popup.textContent = `Nice Catch! (x${catchCount})`;
-
+    // move pikachu across page
     const rect = runningPikachu.getBoundingClientRect();
     popup.style.left = `${rect.left + rect.width / 2}px`;
     popup.style.top = `${rect.top}px`;
@@ -127,15 +127,38 @@ if (runningPikachu) {
       popup.remove();
     }, 1500);
 
-    // Make Pikachu invisible and disable clicking during cooldown
-    runningPikachu.style.opacity = '0';
-    runningPikachu.style.pointerEvents = 'none';
+    // Check every fifth count for ditto
+    if (catchCount % 5 === 0) {
+      // Display message
+      popup.classList.add('nice-catch-popup-ditto');
+      popup.textContent = `Whoa! A Ditto!`
 
-    // Make Pikachu reappear after 3 seconds
-    setTimeout(() => {
-      runningPikachu.style.opacity = '1';
-      runningPikachu.style.pointerEvents = 'auto';
-    }, 3000);
+      // turn into ditto
+      runningPikachu.style.pointerEvents = "none";
+      runningPikachu.src = dittoCatch;
+
+      // switch back to pikachu
+      setTimeout(() => {
+        runningPikachu.src = originalSrc;
+        runningPikachu.style.pointerEvents = "auto";
+      }, 3000);
+
+    } else {
+      // Display message
+      popup.classList.add('nice-catch-popup-pikachu');
+      popup.textContent = `You caught a Pikachu! (x${catchCount})`
+
+      // Make Pikachu invisible and disable clicking during cooldown
+      runningPikachu.style.opacity = '0';
+      runningPikachu.style.pointerEvents = 'none';
+
+      // Make Pikachu reappear after 3 seconds
+      setTimeout(() => {
+        runningPikachu.style.opacity = '1';
+        runningPikachu.style.pointerEvents = 'auto';
+      }, 3000);
+
+    }
   });
 }
 
