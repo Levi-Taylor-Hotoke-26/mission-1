@@ -15,7 +15,8 @@ if (runningPikachu) {
   // Play Pokemon Cry function
   async function playPokemonCry(pokemonName) {
     try {
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`); // fetch attempt from API
+      // fetch attempt from API
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
       const data = await response.json();
 
       const cryURL = data.cries?.latest || data.cries?.legacy;
@@ -45,19 +46,21 @@ if (runningPikachu) {
       origin: { y: 0.2 }
     });
 
-    // move pikachu across page
+    // grab pikachu element and create hit box
     const rect = runningPikachu.getBoundingClientRect();
 
     // Create "catch" message div element
     const popup = document.createElement('div');
 
-    // position "catch""
-    popup.style.left = `${rect.left + rect.width / 2}px`;
-    popup.style.top = `${rect.top}px`;
-    popup.style.transform = 'translate(-50%, -50%)';
+    // position "catch"
+    popup.style.left = `${rect.left + rect.width / 2}px`; // horizontal
+    popup.style.top = `${rect.top}px`; // vertical
+    popup.style.transform = 'translate(-50%, -50%)'; // remove default top-left positioning
 
+    // attach "catch" o running-pikachu
     document.body.appendChild(popup);
 
+    // "catch" lasts 1.5s
     setTimeout(() => {
       popup.remove();
     }, 1500);
@@ -114,7 +117,7 @@ shinyToggleInput.addEventListener('change', () => {
   // check if shiny toggle is enabled
   document.body.classList.toggle('shiny-mode', isShiny);
 
-  // if static class, change to hover class, and vice versa
+  // check if static or hover image
   for (const card of pokemonCards) {
     const staticImg = card.querySelector('.pokemon-img.static');
     const hoverImg = card.querySelector('.pokemon-img.hover');
@@ -171,9 +174,6 @@ pokemonCards.forEach(card => {
 });
 
 // CONTACT FORM
-/* Prevent redirection when submitting contact message
-   Send alert to user based on message success
-   Clear input fields*/
 const contactForm = document.querySelector('.contact-form');
 
 // When submitted

@@ -79,6 +79,7 @@ h1 {
 h2 {
   color: $color-pokemon-yellow;
   font-weight: 600;
+  text-shadow: 3px 3px 0px $color-pokemon-blue;
 }
 
 /* Pikachu Running */
@@ -97,7 +98,7 @@ h2 {
     font-size: 14px;
     color: $color-pokemon-yellow;
     margin: 0;
-    text-shadow: 1px 1px 2px $shadow-text;
+    text-shadow: 2px 2px 2px $color-pokemon-blue;
     z-index: 1;
     cursor: url("images/cubone-cursor.png") 4 4, auto;
 }
