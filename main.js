@@ -101,7 +101,27 @@ if (runningPikachu) {
   const originalSrc = runningPikachu.src;
   const dittoCatch = "images/ditto.gif";
 
-  runningPikachu.addEventListener('click', (event) => {
+  // Get Pokemon Cries
+  async function playPokemonCry(pokemonName) {
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+      const data = await response.json();
+
+      const cryURL = data.cries?.latest || data.cries?.legacy;
+
+      if (cryURL) {
+        const cry = new Audio(cryURL);
+        cry.volume = 0.15;
+        cry.play();
+      } else {
+        console.log(`No cry available for ${pokemonName}`);
+      }
+    } catch (error) {
+      console.error("Could not fetch Pokémon cry:", error);
+    }
+  }
+
+  runningPikachu.addEventListener('click', async (event) => {
     // Arithmetic operator: increment the catch count by 1
     catchCount += 1;
 
@@ -129,6 +149,9 @@ if (runningPikachu) {
 
     // Check every fifth count for ditto
     if (catchCount % 5 === 0) {
+      // Ditto cry
+      await playPokemonCry('ditto');
+
       // Display message
       popup.classList.add('nice-catch-popup-ditto');
       popup.textContent = `Whoa! A Ditto!`
@@ -144,6 +167,8 @@ if (runningPikachu) {
       }, 3000);
 
     } else {
+      // Pikachu cry
+      await playPokemonCry('pikachu');
       // Display message
       popup.classList.add('nice-catch-popup-pikachu');
       popup.textContent = `You caught a Pikachu! (x${catchCount})`
